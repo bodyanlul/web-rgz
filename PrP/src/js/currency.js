@@ -1,15 +1,3 @@
-// async function getCurrency() {
-//     let curr = document.getElementById("in").value;
-//     let count = document.getElementById("count").value;
-//     let url = `https://api.currencyapi.com/v2/latest?apikey=4a16fbf0-5bf6-11ec-a4ff-0dc3c805f898&base_currency=${curr}`
-//     let response = await fetch(url).then(res => res.json()).then(ans => {
-//         console.log(ans);
-//         eval(`let code = ans.data.${AED}`);
-//         console.log(code);
-
-//         console.log("xyu");
-//     })
-// }
 const CURRENCY_CODE = {
     USD: 'USD',
     RUB: 'RUB',
