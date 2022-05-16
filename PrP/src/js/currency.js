@@ -26,6 +26,7 @@ const renderContent = (response) => {
     document.getElementById('data').innerHTML = content
 }
 
+try{
 Promise.all([
     axios.get(`https://api.apilayer.com/exchangerates_data/${getDate()}?apikey=hImy1wFyofVRBh2fOC2Dx6Vpz4EwluyX&base=${CURRENCY_CODE.USD}&symbols=${CURRENCY_CODE.RUB}`),
     axios.get(`https://api.apilayer.com/exchangerates_data/${getDate()}?apikey=hImy1wFyofVRBh2fOC2Dx6Vpz4EwluyX&base=${CURRENCY_CODE.EUR}&symbols=${CURRENCY_CODE.RUB}`),
@@ -33,3 +34,8 @@ Promise.all([
     axios.get(`https://api.apilayer.com/exchangerates_data/${getDate()}?apikey=hImy1wFyofVRBh2fOC2Dx6Vpz4EwluyX&base=${CURRENCY_CODE.CNY}&symbols=${CURRENCY_CODE.RUB}`),
     axios.get(`https://api.apilayer.com/exchangerates_data/${getDate()}?apikey=hImy1wFyofVRBh2fOC2Dx6Vpz4EwluyX&base=${CURRENCY_CODE.CZK}&symbols=${CURRENCY_CODE.RUB}`),
 ]).then((values) => values.forEach(renderContent));
+}
+catch(error)
+{
+    document.getElementById("data").innerText ="Отсутствует подключение к интернету";
+}
